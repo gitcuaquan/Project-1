@@ -26,14 +26,16 @@
     <script src="./src/js/lib/bootstrap/bootstrap.min.js"></script>
     <script>
         let status = false;
-       const test_1 =  setInterval(()=>{
-            console.log("📢📢 >>> file: index.html >>> line 31 >>> setInterval >>> status", status)
+        const test_1 =  setInterval(()=>{
             if (status) {
-            let script = document.createElement('script');
-            script.type = 'module'
-            script.src = './src/js/main.js'
-            document.body.appendChild(script)
-            clearInterval(test_1)
+            const pass = prompt('Xin Cái Password Anh Ơi')
+            if(pass == 'anhquandeptrai'){
+                let script = document.createElement('script');
+                script.type = 'module'
+                script.src = './src/js/main.js'
+                document.body.appendChild(script)
+                clearInterval(test_1)
+            }
         }
         },1000)
       
