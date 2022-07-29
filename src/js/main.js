@@ -1,5 +1,5 @@
-import Tool from "src/js/lib/module/tool.js";
-import { Watch } from "src/js/lib/helper/Variable.js";
+import Tool from "./lib/module/tool.js";
+import { Watch } from "./lib/helper/Variable.js";
 
 const tool = new Tool();
 // === hàm bootstrap tooltipTriggerEl
@@ -15,21 +15,21 @@ statusEditContent.registerListener(function (val) {
   $("[btn-edit]").toggleClass("text-bg-light ");
 });
 $("[btn-edit]").click(function (e) {
-  e.preventDefault(); 
+  e.preventDefault();
   statusEditContent.value = !statusEditContent.value;
 });
-$( function() {
-  $( "#text-edit-bar" ).draggable({ containment: "window" });
-} );
+$(function () {
+  $("#text-edit-bar").draggable({ containment: "window" });
+});
 
- window.formatDoc = (cmd,val = null)=>{
-  if(val){
-    document.execCommand(cmd,false,val);
-  }else{
+window.formatDoc = (cmd, val = null) => {
+  if (val) {
+    document.execCommand(cmd, false, val);
+  } else {
     document.execCommand(cmd);
   }
-}
-window.createLink = ()=>{
-  const url = prompt("Nhập Link Cần Thêm Vào 🥰🥰🤗🤗")
-  document.execCommand('createLink',true,url);
-}
+};
+window.createLink = () => {
+  const url = prompt("Nhập Link Cần Thêm Vào 🥰🥰🤗🤗");
+  document.execCommand("createLink", true, url);
+};
