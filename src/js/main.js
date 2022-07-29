@@ -1,5 +1,5 @@
-import Tool from "/src/js/lib/module/tool.js";
-import { Watch } from "/src/js/lib/helper/Variable.js";
+import Tool from "src/js/lib/module/tool.js";
+import { Watch } from "src/js/lib/helper/Variable.js";
 
 const tool = new Tool();
 // === hàm bootstrap tooltipTriggerEl
