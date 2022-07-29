@@ -9,9 +9,7 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  background: rgb(253, 253, 253);
   padding: 5px 10px;
-  box-shadow: 2px 2px 15px rgba(135, 135, 135, 0.418);
 }
 #view_darg{
   top: 0;

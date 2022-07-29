@@ -1,3 +1,4 @@
+import { EDIT_TOOL } from "../helper/Ui.js";
 export default class Tool {
   constructor() {
     this.toolMode = false;
@@ -7,6 +8,7 @@ export default class Tool {
     this.ID_SCRIPT_EDIT = `ID_MODE_CONTENT_EDIT`;
     this.ID_SCRIPT_MOVE = `ID_MODE_CONTENT_MOVE`;
     this.ID_SCRIPT_ADD_BOLOCK = `ID_MODE_CONTENT_ADD_BOLOCK`;
+    this.ID_EDIT_TEXT_TOOL = `text-edit-bar`;
   }
   init() {
     if (!this.toolMode) {
@@ -41,13 +43,35 @@ export default class Tool {
   }
   createEditContent(status) {
     this.editContentMode = status ?? false;
-    console.log(
-      "📢📢 >>> file: tool.js >>> line 44 >>> Tool >>> createEditContent >>> this.editContentMode",
-      this.editContentMode
-    );
     const a = document.querySelectorAll("[edit-content]");
     a.forEach((node) => {
       node.setAttribute("contenteditable", this.editContentMode);
     });
+  }
+  createEditTextTool() {
+    if (!document.getElementById(this.ID_EDIT_TEXT_TOOL)) {
+      const _container = document.createElement("div");
+      _container.id = this.ID_EDIT_TEXT_TOOL;
+      _container.innerHTML = EDIT_TOOL;
+      document.body.appendChild(_container);
+      window.formatDoc = (cmd, val = null) => {
+        if (val) {
+          document.execCommand(cmd, false, val);
+        } else {
+          document.execCommand(cmd);
+        }
+      };
+      window.createLink = () => {
+        const url = prompt("Nhập Link Cần Thêm Vào 🥰🥰🤗🤗");
+        document.execCommand("createLink", true, url);
+      };
+      $(() =>{
+        $(`#${this.ID_EDIT_TEXT_TOOL}`).draggable({ containment: "window" });
+      });
+    }
+  }
+  DeleteEditTextTool() {
+    const elm = document.getElementById(this.ID_EDIT_TEXT_TOOL);
+    elm.remove();
   }
 }
